@@ -32,7 +32,8 @@ class DatePicker extends Component {
       date: this.getDate(),
       modalVisible: false,
       animatedHeight: new Animated.Value(0),
-      allowPointerEvents: true
+      allowPointerEvents: true,
+      lastPropDate:this.props.date
     };
 
     this.getDate = this.getDate.bind(this);
@@ -58,10 +59,15 @@ class DatePicker extends Component {
     console.ignoredYellowBox.push('Warning: Failed propType');
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.date !== this.props.date) {
-      this.setState({date: this.getDate(nextProps.date)});
+  
+  static getDerivedStateFromProps(props, state) {
+    if (props.lastPropDate !== state.lastPropDate) {
+      return {
+        lastPropDate: props.date,
+        date: this.getDate(props.date)
+      };
     }
+    return null;
   }
 
   setModalVisible(visible) {
