@@ -21,7 +21,7 @@ class datepicker extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this._panResponder = PanResponder.create({
       onStartShouldSetPanResponder: (e) => {console.log('onStartShouldSetPanResponder'); return true;},
       onMoveShouldSetPanResponder: (e) => {console.log('onMoveShouldSetPanResponder'); return true;},
