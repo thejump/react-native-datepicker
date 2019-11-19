@@ -143,7 +143,7 @@ class DatePicker extends Component {
 
   getDate(date,mode, minDate, maxDate) {
     const  format = FORMATS[mode];
-
+    global.warn('aaa2',{format,date,mode, minDate, maxDate})
     if (!date) {
       let now = new Date();
       if (minDate) {
