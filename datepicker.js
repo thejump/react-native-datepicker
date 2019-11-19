@@ -362,7 +362,7 @@ class DatePicker extends Component {
       disabled && customStyles.disabled
     ];
     let formattedDate=this.formattedDate()
-
+    global.warn('aaa',{d:this.getDate(minDate,mode, minDate, maxDate),p:this.props})
     return (
       <TouchableComponent
         style={[Style.dateTouch, style]}
